@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 20:49:39 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 21:51:03 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/15 22:00:34 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int ac, char **av)
 {
 	if (ac > 1 && !is_help(ac, av[1]))
 	{
-		ft_putstr(av[0]);
+		printf("is_alpha %d\n", is_alpha(av[0][3]));
 	}
 	else
 		ft_puterror(USAGE);

@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 20:50:49 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 21:51:06 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/15 21:56:13 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,9 @@ int		is_help(int ac, char *params)
 			len++;
 	}
 	return (len == 2 && (params[0] == '-' && params[1]));
+}
+
+int		is_alpha(char c)
+{
+	return (c >= 97 && c <= 122);
 }
