@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   options.h                                          :+:      :+:    :+:   */
+/*   check_params.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/15 20:47:08 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 23:19:11 by fokrober         ###   ########.fr       */
+/*   Created: 2019/09/15 23:02:53 by fokrober          #+#    #+#             */
+/*   Updated: 2019/09/15 23:17:47 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPTIONS_H
-# define OPTIONS_H
-# include <unistd.h>
-# include <stdio.h>
-# define USAGE 1
-# define INVALID 0
+#include "options.h"
 
-void	ft_puterror(int eno);
-void	ft_putstr(char *s);
-int		is_help(char *params);
-int		is_alpha(char c);
-int		check_params(int ac, char **av);
-int		is_params(char *s);
-#endif
+int		check_params(int ac, char **av)
+{
+	int		i;
+	int		help;
+
+	i = 1;
+	help = 1;
+	while (i < ac)
+	{
+		if (!is_params(av[i]))
+		{
+			ft_puterror(INVALID);
+			return (0);
+		}
+		else if (is_help(av[i++]))
+			help = 0;
+	}
+	if (!help)
+		ft_puterror(USAGE);
+	return (help);
+}
