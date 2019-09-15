@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 20:50:49 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 21:56:13 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/15 22:13:16 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ void	ft_puterror(int eno)
 		ft_putstr("Invalid Option");
 }
 
-int		is_help(int ac, char *params)
+int		is_help(char *params)
 {
 	int		len;
 
 	len = 0;
-	if (ac == 2)
+	while (*params)
 	{
-		while (params[len])
+		if (*params++ == 'h')
 			len++;
 	}
-	return (len == 2 && (params[0] == '-' && params[1]));
+	return (len);
 }
 
 int		is_alpha(char c)
