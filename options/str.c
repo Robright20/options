@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 20:50:49 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 22:13:16 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/15 22:54:38 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,20 @@ int		is_help(char *params)
 int		is_alpha(char c)
 {
 	return (c >= 97 && c <= 122);
+}
+
+int		is_params(char *s)
+{
+	int		rep;
+
+	rep = 1;
+	if  (!s || !*s || *s++ != '-')
+		return (0);
+	while (1)
+	{
+		rep *= is_alpha(*s);
+		if (!*s || !*(++s))
+			break ;
+	}
+	return (rep);
 }
