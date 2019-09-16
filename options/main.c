@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 20:49:39 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 23:09:43 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/16 01:22:44 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int		main(int ac, char **av)
 {
 	if (ac > 1 && !is_help(av[1]))
 	{
-		printf("check_params %d\n", check_params(ac, av));
+		if (check_params(ac, av))
+			save_options(ac, av);
 	}
 	else
 		ft_puterror(USAGE);
