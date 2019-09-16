@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 00:16:02 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/16 01:49:48 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/16 02:45:01 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ void	save_options(int ac, char **av)
 	while (i < ac)
 	{
 		j = 1;
-		while (av[i][j])
-		{
-			options[(int)av[i][j] - 97] = 1;
-			j++;
-		}
+		if (av[i][0] == '-')
+			while (av[i][j])
+				options[(int)av[i][j++] - 97] = 1;
 		i++;
 	}
 	print_options(options);

@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 23:02:53 by fokrober          #+#    #+#             */
-/*   Updated: 2019/09/15 23:17:47 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/09/16 02:46:14 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		check_params(int ac, char **av)
 	help = 1;
 	while (i < ac)
 	{
-		if (!is_params(av[i]))
+		if (!is_params(av[i]) && av[i][0] == '-')
 		{
 			ft_puterror(INVALID);
 			return (0);
